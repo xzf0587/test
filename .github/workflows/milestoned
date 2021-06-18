@@ -1,0 +1,23 @@
+name: Milestoned
+
+on: 
+  issues:
+    types: [milestoned]
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Actions
+        uses: actions/checkout@v2
+        with:
+          repository: "xzf0587/vscode-github-triage-actions"
+          ref: main
+          path: ./actions
+      - name: Install Actions
+        run: npm install --production --prefix ./actions
+
+      - name: Run Milestoned 
+        uses: ./actions/milestoned
+        with:
+          milestoneId: 2     
