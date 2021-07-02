@@ -20,4 +20,4 @@ jobs:
         uses: ./actions/greeting
         with:
           issue-message: "hello, this is an auto greeting comment."  
-          token: ${{ TEAMSFX_BOT }}
+          token: ${{ secret.TEAMSFX_BOT }}
