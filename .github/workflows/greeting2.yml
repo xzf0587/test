@@ -19,4 +19,5 @@ jobs:
       - name: Run Greeting 
         uses: ./actions/greeting
         with:
-          issue-message: "hello, this is an auto greeting comment."     
+          issue-message: "hello, this is an auto greeting comment."  
+          token: ${{ TEAMSFX_BOT }}
