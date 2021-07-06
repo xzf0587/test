@@ -10,9 +10,10 @@ jobs:
       - name: Checkout Actions
         uses: actions/checkout@v2
         with:
-          repository: "xzf0587/vscode-github-triage-actions"
-          ref: main
+          repository: "OfficeDev/teamsfx-issue-triage-bot"
+          ref: greeting
           path: ./actions
+          token: ${{secrets.PERSONAL_TOKEN}}
       - name: Install Actions
         run: npm install --production --prefix ./actions
 
