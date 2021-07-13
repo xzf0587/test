@@ -15,7 +15,7 @@ jobs:
          repository: "OfficeDev/teamsfx-issue-triage-bot"
          ref: stale 
          path: ./actions
-         token: ${{secrets.PERSONAL_TOKEN}}
+         token: ${{secrets.TEAMSFX_BOT}}
       - name: Install Actions
         run: npm install --production --prefix ./actions
 
