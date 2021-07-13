@@ -2,7 +2,7 @@ name: Stale
 
 on: 
   schedule:
-    - cron: "30 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 jobs:
@@ -12,9 +12,10 @@ jobs:
       - name: Checkout Actions
         uses: actions/checkout@v2
         with:
-          repository: "xzf0587/vscode-github-triage-actions"
-          ref: main
-          path: ./actions
+         repository: "OfficeDev/teamsfx-issue-triage-bot"
+         ref: stale 
+         path: ./actions
+         token: ${{secrets.TEAMSFX_BOT}}
       - name: Install Actions
         run: npm install --production --prefix ./actions
 
@@ -23,3 +24,5 @@ jobs:
         with:
           label: need-more-info
           close-message: close the issue for stale   
+          close-days: 1
+          token: ${{secrets.TEAMSFX_BOT}}
