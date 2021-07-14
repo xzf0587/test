@@ -1,0 +1,26 @@
+name: Needs More Info Closer
+on:
+  schedule:
+    - cron: */5 * * * * # 4:20am Redmond
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Actions
+        uses: actions/checkout@v2
+        with:
+          repository: "microsoft/vscode-github-triage-actions"
+          path: ./actions
+          ref: stable
+      - name: Install Actions
+        run: npm install --production --prefix ./actions
+      - name: Run Needs More Info Closer
+        uses: ./actions/needs-more-info-closer
+        with:
+          token: ${{secrets.TEAMSFX_BOT}}
+          label: needs more info
+          closeDays: 7
+          closeComment: "Due to lack of details for further investigation, we will archive the issue for now. In case you still have following-up questions on this issue, please always feel free to reopen the issue by clicking ‘reopen issue’ button below the comment box. We will get back to you as soon as possible."
+          pingDays: 80
+          pingComment: "Hey @${assignee}, this issue might need further attention.\n\n@${author}, you can help us out by closing this issue if the problem no longer exists, or adding more information."
