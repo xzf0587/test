@@ -1,0 +1,33 @@
+name: azdo
+on:
+  issues:
+    types: [milestoned]
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Actions
+        uses: actions/checkout@v2
+        with:
+          repository: "OfficeDev/teamsfx-issue-triage-bot"
+          ref: milestoned
+          path: ./actions
+          token: ${{secrets.TEAMSFX_BOT}}
+      - name: Install Actions
+        run: npm install --production --prefix ./actions
+
+      - name: Run Greeting 
+        uses: ./actions/milestoned
+        with: 
+          token: ${{secrets.TEAMSFX_BOT}}
+          milestone-pattern: CY
+          devops-token: ${{secrets.AZDO_PAT}}
+          devops-org: xzf01
+          devops-projectId: demo
+          bug-label: bug
+          bug-area-path: demo
+          bug-iteration-path: demo
+          feature-label: feature-request
+          feature-area-path: demo
+          feature-iteration-path: demo
