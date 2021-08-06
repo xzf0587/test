@@ -19,7 +19,7 @@ jobs:
         run: npm install --production --prefix ./actions
 
       - name: Run Greeting 
-        uses: ./actions/greeting
+        uses: ./actions/milestoned
         with:
           token: ${{secrets.TEAMSFX_BOT}}
           milestone-pattern: "CY"
