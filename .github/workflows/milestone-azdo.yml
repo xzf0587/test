@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: "OfficeDev/teamsfx-issue-triage-bot"
-          ref: dev
+          ref: main
           path: ./actions
           token: ${{secrets.TEAMSFX_BOT}}
       - name: Install Actions
