@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: "OfficeDev/teamsfx-issue-triage-bot"
-          ref: main
+          ref: update-milestoned
           path: ./actions
           token: ${{secrets.TEAMSFX_BOT}}
       - name: Install Actions
@@ -22,7 +22,7 @@ jobs:
         uses: ./actions/milestoned
         with:
           token: ${{secrets.TEAMSFX_BOT}}
-          milestone-pattern: "CY"
+          milestone-prefix: "CY"
           devops-token: ${{secrets.TEAMSFX_AZDO}}
           devops-org: "msazure"
           devops-projectId: "Microsoft Teams Extensibility"
