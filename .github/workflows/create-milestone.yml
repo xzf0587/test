@@ -19,7 +19,7 @@ jobs:
       - name: Install Actions
         run: npm install --production --prefix ./actions
 
-      - name: Run Stale 
+      - name: Run Create Milestone
         uses: ./actions/create-milestone
         with:
           milestone-prefix: CY
