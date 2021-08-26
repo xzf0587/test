@@ -23,6 +23,6 @@ jobs:
         uses: ./actions/create-milestone
         with:
           milestone-prefix: CY
-          milestone-days: 365
+          milestone-days: 14
           advanced-days: 5
           token: ${{secrets.TEAMSFX_BOT}}
