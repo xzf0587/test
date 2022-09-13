@@ -23,6 +23,6 @@ jobs:
           token: ${{secrets.GITHUB_TOKEN}}
           reply: match the app studio error.
           adding-tags: duplicate,close-wait
-          matching-reg: 'API call to Developer Portal failed: Error, Request failed with status code (\\d{3}), API name: (.*), X-Correlation-ID: (\\S*)\\.'
+          matching-reg: 'API call to Developer Portal failed. Error, Request failed with status code (\\d{3}), API name. (.*), X-Correlation-ID. (\\S*)\\.'
           status-codes-ignore-api: 503
           
