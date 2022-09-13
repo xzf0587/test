@@ -1,0 +1,28 @@
+name: duplicate
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Actions
+        uses: actions/checkout@v2
+        with:
+          repository: "OfficeDev/teamsfx-issue-triage-bot"
+          ref: milestoned
+          path: ./actions
+          token: ${{secrets.TEAMSFX_BOT}}
+      - name: Install Actions
+        run: npm install --production --prefix ./actions
+
+      - name: Check duplicate
+        uses: ./actions/duplicate-handler-for-app-studio
+        with: 
+          token: ${{secrets.GITHUB_TOKEN}}
+          reply: match the app studio error.
+          adding-tags: duplicate,close-wait
+          matching-reg: 'API call to Developer Portal failed: Error, Request failed with status code (\\d{3}), API name: (.*), X-Correlation-ID: (\\S*)\\.'
+          status-codes-ignore-api: 503
+          
