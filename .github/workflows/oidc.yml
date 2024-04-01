@@ -1,5 +1,6 @@
 name: Run Azure Login with OpenID Connect
-on: [push]
+on: 
+    workflow_dispatch: # allows to run manually for testing
 
 permissions:
       id-token: write
