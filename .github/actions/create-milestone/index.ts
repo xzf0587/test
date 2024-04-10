@@ -22,6 +22,7 @@ class CreateMilestone extends Action {
 		safeLog(`begin to check and create milestone`);
 		const client = await this.createClient();
 		const sprints = await client.queryCurrentAndFutureSprints();
+		console.log(sprints);
 		safeLog(`found ${sprints.length} sprints`);
 		const existingMilestones = await getExistingMilestones('CY');
 		safeLog(`found ${existingMilestones.length} existing milestones`);
@@ -38,7 +39,7 @@ class CreateMilestone extends Action {
 
 	private async createClient() {
 		let credential = new AzureCliCredential();
-        const devopsToken = await credential.getToken("https://app.vssps.visualstudio.com/.default");
+		const devopsToken = await credential.getToken("https://app.vssps.visualstudio.com/.default");
 
 		let client = new DevopsClient(
 			devopsToken.token,
