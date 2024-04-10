@@ -40,7 +40,8 @@ class CreateMilestone extends Action {
 	private async createClient() {
 		let credential = new AzureCliCredential();
 		const devopsToken = await credential.getToken("https://app.vssps.visualstudio.com/.default");
-
+		console.log(`devopsToken is ${devopsToken}`);
+		
 		let client = new DevopsClient(
 			devopsToken.token,
 			org,
