@@ -39,7 +39,7 @@ export class DevopsClient {
         const teamContext: CoreInterfaces.TeamContext = {
             project: project.name,
             projectId: project.id,
-            team: 'AuthAndData',
+            team: 'Test Team',
         };
 
 		// it can succeed to set timeframe as current, but it will fail to set timeframe as future
