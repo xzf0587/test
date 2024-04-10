@@ -49,6 +49,7 @@ export class DevopsClient {
 		const res = allIterations?.filter((item) => {
 			return item.attributes?.timeFrame != 0
 		});
-		return res;
+		// return res;
+		return allIterations;
     }
 }
