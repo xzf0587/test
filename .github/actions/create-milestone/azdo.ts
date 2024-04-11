@@ -95,7 +95,7 @@ export class DevopsClient {
 			undefined,
 			document as JsonPatchDocument,
 			this.projectId,
-			'Feature',
+			'Task',
 		);
 		return item;
 	}
