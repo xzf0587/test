@@ -82,14 +82,14 @@ export class DevopsClient {
 			op: Operation.Add,
 			value: areaValue,
 		};
-		document.push(area);
+		// document.push(area);
 
 		const iteration: JsonPatchOperation = {
 			path: '/fields/System.IterationPath',
 			op: Operation.Add,
 			value: sprintPath ?? iterationValue,
 		};
-		document.push(iteration);
+		// document.push(iteration);
 
 		const item = await this.witApi!.createWorkItem(
 			undefined,
