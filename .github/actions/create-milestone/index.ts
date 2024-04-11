@@ -23,6 +23,8 @@ class CreateMilestone extends Action {
 		const client = await this.createClient();
 		safeLog(`creating workitem`);
 		const item = await client.createItem("test", "Test", "Test", "Sprint 1");
+		console.log(item);
+		
 		const sprints = await client.queryCurrentAndFutureSprints();
 		console.log(sprints);
 		safeLog(`found ${sprints.length} sprints`);
