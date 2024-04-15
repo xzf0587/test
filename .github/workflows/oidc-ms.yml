@@ -19,7 +19,8 @@ jobs:
         with:
           client-id: 335a8848-d80e-4963-93c7-a471d627936f
           tenant-id: 72f988bf-86f1-41af-91ab-2d7cd011db47
-          subscription-id: e24d88be-b95f-4815-ba25-ae48defc8da2
+          # subscription-id: e24d88be-b95f-4815-ba25-ae48defc8da2
+          subscription-id: 1756abc0-3554-4341-8d6a-46674962ea19
   
       - name: 'Run Azure CLI commands'
         run: |
