@@ -21,9 +21,9 @@ class CreateMilestone extends Action {
 	async onTriggered(_: OctoKit) {
 		safeLog(`begin to check and create milestone`);
 		const client = await this.createClient();
-		safeLog(`creating workitem`);
-		const item = await client.createItem("test", "Test", "Test\Sprint 1", "Sprint 1");
-		console.log(item);
+		// safeLog(`creating workitem`);
+		// const item = await client.createItem("test", "Test", "Test\Sprint 1", "Sprint 1");
+		// console.log(item);
 		
 		const sprints = await client.queryCurrentAndFutureSprints();
 		console.log(sprints);
